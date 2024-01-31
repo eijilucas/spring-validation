@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "tb_cliente")
@@ -21,11 +22,14 @@ public class Cliente implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotBlank
+	@NotBlank(message = "Campo não informado")
+	@Pattern(regexp = "^[A-Z]+(.)*", message = "Campo nome deve iniciar com letra maiúscula")
 	private String name;
-	@Email
+	@Email(message = "Campo inválido")
+	@NotBlank(message = "Campo não informado")
 	private String email;
-	@CPF
+	@CPF(message = "Campo inválido")
+	@NotBlank(message = "Campo não informado")
 	private String cpf;
 
 	
