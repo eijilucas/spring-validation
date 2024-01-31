@@ -13,7 +13,7 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/api/cliente")
 public class ClienteController {
-
+	
 	@PostMapping("/salvar")
 	public ResponseEntity<Cliente> save(@RequestBody @Valid Cliente cliente) {
 		return ResponseEntity.ok().body(cliente);
